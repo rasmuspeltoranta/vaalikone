@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import app.dao.Dao;
 
 @WebServlet(
-    name = "HelloAppEngine",
-    urlPatterns = {"/hello"}
+    name = "Ehdokkaat",
+    urlPatterns = {"/Ehdokkaat"}
 )
 public class HelloAppEngine extends HttpServlet {
 
@@ -23,7 +23,7 @@ public class HelloAppEngine extends HttpServlet {
     response.setContentType("text/plain");
     response.setCharacterEncoding("UTF-8");
 
-    response.getWriter().print("Hello App Engine!\r\n");
+    
     
     Dao dao = new Dao();
     dao.close();
