@@ -33,7 +33,7 @@ public class AddUserServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		String salt = SecurityUtils.getSalt();
-		String hashpw = SecurityUtils.getPasswordHashed(pasword, salt);
+		String hashpw = SecurityUtils.getPasswordHashed(password, salt);
 		
 		dao.addUser(uname, hashpw, salt);
 		
