@@ -3,6 +3,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import app.model.Candidate;
 
 public class Dao {
 	private Connection conn;
@@ -70,6 +74,32 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	public ArrayList<Candidate> readAllCandidates() {
+		ArrayList<Candidate> list=new ArrayList<>();
+		Statement stmt=null;
+		int count=0;
+		try {
+			stmt = conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
+			while (rs.next()) {
+				Candidate candidate=new Candidate();
+				candidate.setEhdokas_id(rs.getInt("EHDOKAS_ID"));
+				candidate.setSukunimi(rs.getString("SUKUNIMI"));
+				candidate.setEtunimi(rs.getString("ETUNIMI"));
+				candidate.setPuolue(rs.getString("PUOLUE"));
+				candidate.setKotipaikkakunta(rs.getString("KOTIPAIKKAKUNTA"));
+				candidate.setIka(rs.getInt("IKA"));
+				candidate.setMiksi_eduskuntaan(rs.getString("MIKSI_EDUSKUNTAAN"));
+				candidate.setMita_asioita_haluat_edistaa(rs.getString("MITA_ASIOITA_HALUAT_EDISTAA"));
+				candidate.setAmmatti(rs.getString("Ammatti"));
+				list.add(candidate);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 }
