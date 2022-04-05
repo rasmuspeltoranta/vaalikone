@@ -45,8 +45,10 @@ public class LoginServlet extends HttpServlet {
 		 session.setAttribute("LoggedUser", uname);
 	 } else {
 		 response.getWriter().println("login failed");
+		 RequestDispatcher rd = request.getRequestDispatcher("login.html");
+		 rd.forward(request, response);
 	 }
-	 RequestDispatcher rd = request.getRequestDispatcher("login.html");
+	 RequestDispatcher rd = request.getRequestDispatcher("index.html");
 	 rd.forward(request, response);
 }
 	 }
