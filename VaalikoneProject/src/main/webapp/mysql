@@ -1,3 +1,6 @@
+//database commands by Rasmus
+
+
 create user pena@localhost identified by 'kukkuu';
 grant all on vaalikone.* to pena@localhost;
 
