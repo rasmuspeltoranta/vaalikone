@@ -19,7 +19,7 @@
 <tr>
 	<th>ID</th>
 	<th>Sukunimi</th>
-	<th>Etuimi</th>
+	<th>Etunimi</th>
 	<th>Puolue</th>
 </tr>
 <c:forEach var="candidate" items="${sessionScope.allcandidates }">
@@ -28,6 +28,9 @@
 		<td>${candidate.sukunimi }</td>
 		<td>${candidate.etunimi }</td>
 		<td>${candidate.puolue }</td>
+	 <td>
+	 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id }"> Muokkaa</a>
+	 </td>
 		
 	</tr>
 </c:forEach>
