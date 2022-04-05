@@ -4,11 +4,27 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
 <title>Admin</title>
 </head>
+<style>
+body{
+background-color: #166a8b;
+
+}
+h1 {
+text-align: center;
+}
+form {
+text-align: center;
+font-size: x-large;
+}
+
+
+</style>
 <body>
 <h1>Admin kirjautuminen:</h1>
+
 <form action="/admin" method="post">
-<input type="text" name= "username" value="">
-<input type="password" name= "password" value="">
+<input type="text" name= "username" placeholder="username">
+<input type="password" name= "password" placeholder="password">
 <input type="submit" name= "send" value="Login">
 </form>
 <form action="/add" method= "post">
