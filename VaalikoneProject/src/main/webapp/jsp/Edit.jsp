@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here testing purpose - testing 1 more time</title>
+
 </head>
 <body>
 
