@@ -37,7 +37,7 @@ public class EditCandidate extends HttpServlet {
 				
 				session.setAttribute("candidate", candidate);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/edit.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("jsp/editform.jsp");
 				rd.forward(request, response);
 				
 			} catch (Exception e) {
