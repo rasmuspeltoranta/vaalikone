@@ -1,6 +1,8 @@
 package app.model;
 
-public class Candidate {
+import java.io.Serializable;
+
+public class Candidate implements Serializable {
 private int ehdokas_id;
 private String sukunimi;
 private String etunimi;
@@ -64,5 +66,8 @@ public String getAmmatti() {
 }
 public void setAmmatti(String ammatti) {
 	this.ammatti = ammatti;
+}
+public String toString() {
+	return ehdokas_id+" "+sukunimi+" "+etunimi+" "+puolue+" "+kotipaikkakunta+" "+ika+" "+miksi_eduskuntaan+" "+mita_asioita_haluat_edistaa+" "+ammatti;
 }
 }
