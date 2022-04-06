@@ -39,7 +39,9 @@ display: flex;
 
 <c:forEach var="candidate" items="${sessionScope.allcandidates }">
 <br>
-			<h1>${candidate.ehdokas_id } ${candidate.etunimi } ${candidate.sukunimi }</h1>
+			<h1 style="text-align:left">
+			${candidate.ehdokas_id } ${candidate.etunimi } ${candidate.sukunimi }
+			</h1>
 			<b>Puolue</b>
 			${candidate.puolue }<br>
 			<b>Kotipaikkakunta</b>
