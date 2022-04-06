@@ -29,32 +29,33 @@ display: flex;
     flex-flow: column wrap;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: left;
   }
   
   
   
   </style>
 <body>
-<table>
-<tr>
-	<th>ID</th>
-	<th>Sukunimi</th>
-	<th>Etunimi</th>
-	<th>Puolue</th>
-</tr>
+
 <c:forEach var="candidate" items="${sessionScope.allcandidates }">
-	<tr>
-		<td>${candidate.ehdokas_id }</td>
-		<td>${candidate.sukunimi }</td>
-		<td>${candidate.etunimi }</td>
-		<td>${candidate.puolue }</td>
-	 <td>
-	 
-	 </td>
+<br>
+			<h1>${candidate.ehdokas_id } ${candidate.etunimi } ${candidate.sukunimi }</h1>
+			<b>Puolue</b>
+			${candidate.puolue }<br>
+			<b>Kotipaikkakunta</b>
+			${candidate.kotipaikkakunta }<br>
+			<b>Ik‰</b>
+			${candidate.ika }<br>
+			<b>Ammatti</b>
+			${candidate.ammatti }<br>
+			<b>Miksi haluat eduskuntaan?</b>
+			${candidate.miksi_eduskuntaan }<br>
+			<b>Mit‰ asioita haluat edist‰‰?</b>
+			${candidate.mita_asioita_haluat_edistaa }<br>
+
 		
-	</tr>
+
 </c:forEach>
-</table>
+
 </body>
 </html>
