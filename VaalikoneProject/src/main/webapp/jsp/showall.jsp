@@ -13,7 +13,30 @@
 <meta charset="ISO-8859-1">
 <title>All datatable rows</title>
 </head>
+<style>
+body{
+background-color: #166a8b;
+text-align:center;
+display: flex;
+    flex-flow: column wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+font-size: x-large;
+
+}
+table{
+text-align:center;
+background-color: white;
+
+}
+h1{
+font-size:xx-large;
+
+}
+</style>
 <body>
+<h1>Ehdokkaat:</h1>
 
 <table>
 <tr>
@@ -29,12 +52,13 @@
 		<td>${candidate.etunimi }</td>
 		<td>${candidate.puolue }</td>
 	 <td>
-	 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id }"> Muokkaa</a>
+	 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id }"> Muokkaa</a> <br>
 	 </td>
 		
 	</tr>
 </c:forEach>
 </table>
+ <a href="form.html"> Lisää</a> 
 
 </body>
 </html>

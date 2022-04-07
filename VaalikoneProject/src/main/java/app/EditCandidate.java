@@ -30,10 +30,10 @@ public class EditCandidate extends HttpServlet {
 		
 		if ( idValue != null ) {
 			try {
-				int ehdokas_id = Integer.parseInt(idValue);
+				int id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Candidate candidate = dao.getCandidateInfo(ehdokas_id);
+				Candidate candidate = dao.getCandidateInfo(id);
 				
 				session.setAttribute("candidate", candidate);
 				
@@ -57,7 +57,7 @@ public class EditCandidate extends HttpServlet {
 		
 	
 		
-		// Create connection
+		
 		Dao dao=new Dao();
 		Candidate candidate = readCandidate(request);
 		
@@ -65,9 +65,7 @@ public class EditCandidate extends HttpServlet {
 		
 		dao.close();
 		
-		// Back to list after actions
-		//RequestDispatcher rd = request.getRequestDispatcher("/showdata");
-		//rd.forward(request, response);
+		
 		response.sendRedirect("/showdata");
 	}
 	

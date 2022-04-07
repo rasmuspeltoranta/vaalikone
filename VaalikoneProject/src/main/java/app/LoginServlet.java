@@ -40,7 +40,6 @@ public class LoginServlet extends HttpServlet {
 	 dao.close();
 	 
 	 if ( SecurityUtils.isPasswordOk(hashpw, password, salt) ) {
-		 response.getWriter().println("Login success");
 		 HttpSession session = request.getSession();
 		 session.setAttribute("LoggedUser", uname);
 	 } else {

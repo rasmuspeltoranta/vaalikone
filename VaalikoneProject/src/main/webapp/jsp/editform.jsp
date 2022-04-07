@@ -10,6 +10,22 @@
 <meta charset="ISO-8859-1">
 <title>Edit Game</title>
 </head>
+<style>
+body{
+background-color: #166a8b;
+
+align-items: center;
+
+
+
+}
+form{
+font-size: x-large;
+text-align: center;
+}
+
+
+</style>
 <body>
 
 	<form action='./editcandidate' method='post'>
