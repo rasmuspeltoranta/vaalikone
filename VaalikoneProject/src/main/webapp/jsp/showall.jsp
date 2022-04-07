@@ -54,6 +54,8 @@ font-size:xx-large;
 	 <td>
 	 <a href="/editcandidate?ehdokas_id=${candidate.ehdokas_id }"> Muokkaa</a> <br>
 	 </td>
+	 <td>
+	 <a href="/removecandidate?ehdokas_id=${candidate.ehdokas_id }">Poista</a>
 		
 	</tr>
 </c:forEach>
