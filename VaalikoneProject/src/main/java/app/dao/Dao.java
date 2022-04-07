@@ -165,7 +165,7 @@ public class Dao {
 		return count;
 	}
 	public void RemoveCandidate(int ehdokas_id) {
-		String sql = "DELETE FROM ehdokkaat WHERE ehdokas_id=?";
+		String sql = "delete from ehdokkaat where ehdokas_id=?";
 		try {
 		 
 		PreparedStatement statement = conn.prepareStatement(sql);
