@@ -72,15 +72,15 @@ public class EditCandidate extends HttpServlet {
 	private Candidate readCandidate(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		Candidate candidate=new Candidate();
-		candidate.setSukunimi(request.getParameter("SUKUNIMI"));
-		candidate.setEtunimi(request.getParameter("ETUNIMI"));
-		candidate.setPuolue(request.getParameter("PUOLUE"));
-		candidate.setKotipaikkakunta(request.getParameter("KOTIPAIKKAKUNTA"));
-		candidate.setIka(Integer.parseInt(request.getParameter("IKA")));
-		candidate.setMiksi_eduskuntaan(request.getParameter("MIKSI_EDUSKUNTAAN"));
-		candidate.setMita_asioita_haluat_edistaa(request.getParameter("MITA_ASIOITA_HALUAT_EDISTAA"));
-		candidate.setAmmatti(request.getParameter("AMMATTI"));
-		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("EHDOKAS_ID")));
+		candidate.setSukunimi(request.getParameter("sukunimi"));
+		candidate.setEtunimi(request.getParameter("etunimi"));
+		candidate.setPuolue(request.getParameter("puolue"));
+		candidate.setKotipaikkakunta(request.getParameter("kotipaikkakunta"));
+		candidate.setIka(Integer.parseInt(request.getParameter("ika")));
+		candidate.setMiksi_eduskuntaan(request.getParameter("miksi_eduskuntaan"));
+		candidate.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_muuttaa"));
+		candidate.setAmmatti(request.getParameter("ammatti"));
+		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("ehdokas_id")));
 		return candidate;
 	}
 }
