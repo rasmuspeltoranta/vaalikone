@@ -10,15 +10,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import app.dao.Dao;
 import app.model.Candidate;
+import app.security.SecurityUtils;
 
 @WebServlet(
 		name = "AddCandidate",
 		urlPatterns = {"/addcandidate"}
 		)
-
+// made by Rasmus
 public class AddCandidate extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -30,11 +32,19 @@ public class AddCandidate extends HttpServlet {
 			throws IOException, ServletException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
+		// if sessions does not exist, create new one
+		HttpSession session = request.getSession(false);
+		if (SecurityUtils.isUserLogged(session)) {
+			 response.getWriter().println("Logged in");
+			
+		}else
+		{ response.getWriter().println("Sinun pitää kirjautua");
+		response.sendRedirect("/showdata");
+		}
 
-		/*
-		 * With a RequestDispatcher object is the htmlstart.html file included to this servlet
-		 */
-		RequestDispatcher rd=request.getRequestDispatcher("staticpages/htmlstart.html");
+
+		 
+		RequestDispatcher rd=request.getRequestDispatcher("form.html");
 		rd.include(request,  response);;
 		
 		// Read parameters to Model
@@ -45,19 +55,18 @@ public class AddCandidate extends HttpServlet {
 		
 		// Save value and query total list
 		dao.saveCandidate(candidate);
-		ArrayList<Candidate> list=dao.readAllCandidates();
+		
 		
 		// print output and close connection
-		printCandidateList(out, list);
+		
 		dao.close();
 		
 		
-		out.println("<br><a href='./form.html'>Back to form</a>");
-
-		/*
-		 * With a RequestDispatcher object is the htmlend.html file included to this servlet
-		 */
-		rd=request.getRequestDispatcher("staticpages/htmlend.html");
+		
+		
+		
+		 
+		response.sendRedirect("/showdata");
 		rd.include(request,  response);;
 	}
 
@@ -75,14 +84,6 @@ public class AddCandidate extends HttpServlet {
 		candidate.setAmmatti(request.getParameter("ammatti"));
 		candidate.setEhdokas_id(Integer.parseInt(request.getParameter("ehdokas_id")));
 		return candidate;
-	}
-	
-	private void printCandidateList(PrintWriter out, ArrayList<Candidate> list) {
-		out.println("<ul>");
-		for (Candidate g:list) {
-			out.println("<li>"+g);
-		}
-		out.println("</ul>");
 	}
 
 }

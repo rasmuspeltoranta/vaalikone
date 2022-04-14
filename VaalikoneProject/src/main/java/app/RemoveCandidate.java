@@ -16,6 +16,7 @@ import app.model.Candidate;
 		name = "RemoveCandidate",
 		urlPatterns = {"/removecandidate"}
 		)
+// made by Rasmus
 
 
 public class RemoveCandidate extends HttpServlet {

@@ -15,6 +15,7 @@ import app.security.SecurityUtils;
 		name = "AddUserServlet",
 		urlPatterns = {"/add"}
 		)
+// made by Rasmus
 
 public class AddUserServlet extends HttpServlet {
 	@Override

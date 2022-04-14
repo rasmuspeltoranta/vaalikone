@@ -19,27 +19,19 @@ import app.security.SecurityUtils;
 		name = "ShowCandidates",
 		urlPatterns = {"/ehdokkaat"}
 		)
+// Made by Santeri
 
 public class ShowCandidates extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
 		
-		// if sessions does not exist, create new one
-		HttpSession session = request.getSession(false);
-		if (SecurityUtils.isUserLogged(session)) {
-			 response.getWriter().println("Logged in");
-			
-		}else
-		{ response.getWriter().println("Sinun pitää kirjautua");
-		RequestDispatcher rd = request.getRequestDispatcher("login.html");
-		 rd.forward(request, response);
-		}
+		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
 		ArrayList<Candidate> candidates = dao.readAllCandidates();
 		
-		session.setAttribute("LoggedUser", candidates);
+		session.setAttribute("candidates", candidates);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/showcandidates.jsp");
 		rd.forward(request, response);

@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.model.Candidate;
+// all made by Rasmus
 
 public class Dao {
 	private Connection conn;
